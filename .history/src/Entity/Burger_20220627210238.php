@@ -9,10 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BurgerRepository::class)]
-#[ApiResource(
-    collectionOperations: ["get", "post"],
-    itemOperations: ["put", "get"]
-)]
+#[ApiResource]
 class Burger
 {
     #[ORM\Id]
@@ -29,6 +26,9 @@ class Burger
     #[ORM\ManyToOne(targetEntity: Gestionair::class, inversedBy: 'burgers')]
     #[ORM\JoinColumn(nullable: false)]
     private $gestionair;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isEtat;
 
     public function __construct()
     {
@@ -90,6 +90,18 @@ class Burger
     public function setGestionair(?Gestionair $gestionair): self
     {
         $this->gestionair = $gestionair;
+
+        return $this;
+    }
+
+    public function isIsEtat(): ?bool
+    {
+        return $this->isEtat;
+    }
+
+    public function setIsEtat(bool $isEtat): self
+    {
+        $this->isEtat = $isEtat;
 
         return $this;
     }

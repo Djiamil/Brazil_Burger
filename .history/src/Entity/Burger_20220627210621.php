@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BurgerRepository::class)]
 #[ApiResource(
-    collectionOperations: ["get", "post"],
-    itemOperations: ["put", "get"]
+    collectionOperations:["get","post"],
+    itemOperations:["put","get"]
 )]
 class Burger
 {

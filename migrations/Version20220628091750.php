@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220624165211 extends AbstractMigration
+final class Version20220628091750 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20220624165211 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE user ADD expire_at DATETIME NOT NULL');
+        $this->addSql('ALTER TABLE burger DROP is_etat');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE user DROP expire_at');
+        $this->addSql('ALTER TABLE burger ADD is_etat TINYINT(1) NOT NULL');
     }
 }
